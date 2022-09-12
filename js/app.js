@@ -3459,138 +3459,6 @@
         }));
         return params;
     }
-    function Navigation(_ref) {
-        let {swiper, extendParams, on, emit} = _ref;
-        extendParams({
-            navigation: {
-                nextEl: null,
-                prevEl: null,
-                hideOnClick: false,
-                disabledClass: "swiper-button-disabled",
-                hiddenClass: "swiper-button-hidden",
-                lockClass: "swiper-button-lock",
-                navigationDisabledClass: "swiper-navigation-disabled"
-            }
-        });
-        swiper.navigation = {
-            nextEl: null,
-            $nextEl: null,
-            prevEl: null,
-            $prevEl: null
-        };
-        function getEl(el) {
-            let $el;
-            if (el) {
-                $el = dom(el);
-                if (swiper.params.uniqueNavElements && "string" === typeof el && $el.length > 1 && 1 === swiper.$el.find(el).length) $el = swiper.$el.find(el);
-            }
-            return $el;
-        }
-        function toggleEl($el, disabled) {
-            const params = swiper.params.navigation;
-            if ($el && $el.length > 0) {
-                $el[disabled ? "addClass" : "removeClass"](params.disabledClass);
-                if ($el[0] && "BUTTON" === $el[0].tagName) $el[0].disabled = disabled;
-                if (swiper.params.watchOverflow && swiper.enabled) $el[swiper.isLocked ? "addClass" : "removeClass"](params.lockClass);
-            }
-        }
-        function update() {
-            if (swiper.params.loop) return;
-            const {$nextEl, $prevEl} = swiper.navigation;
-            toggleEl($prevEl, swiper.isBeginning && !swiper.params.rewind);
-            toggleEl($nextEl, swiper.isEnd && !swiper.params.rewind);
-        }
-        function onPrevClick(e) {
-            e.preventDefault();
-            if (swiper.isBeginning && !swiper.params.loop && !swiper.params.rewind) return;
-            swiper.slidePrev();
-            emit("navigationPrev");
-        }
-        function onNextClick(e) {
-            e.preventDefault();
-            if (swiper.isEnd && !swiper.params.loop && !swiper.params.rewind) return;
-            swiper.slideNext();
-            emit("navigationNext");
-        }
-        function init() {
-            const params = swiper.params.navigation;
-            swiper.params.navigation = create_element_if_not_defined_createElementIfNotDefined(swiper, swiper.originalParams.navigation, swiper.params.navigation, {
-                nextEl: "swiper-button-next",
-                prevEl: "swiper-button-prev"
-            });
-            if (!(params.nextEl || params.prevEl)) return;
-            const $nextEl = getEl(params.nextEl);
-            const $prevEl = getEl(params.prevEl);
-            if ($nextEl && $nextEl.length > 0) $nextEl.on("click", onNextClick);
-            if ($prevEl && $prevEl.length > 0) $prevEl.on("click", onPrevClick);
-            Object.assign(swiper.navigation, {
-                $nextEl,
-                nextEl: $nextEl && $nextEl[0],
-                $prevEl,
-                prevEl: $prevEl && $prevEl[0]
-            });
-            if (!swiper.enabled) {
-                if ($nextEl) $nextEl.addClass(params.lockClass);
-                if ($prevEl) $prevEl.addClass(params.lockClass);
-            }
-        }
-        function destroy() {
-            const {$nextEl, $prevEl} = swiper.navigation;
-            if ($nextEl && $nextEl.length) {
-                $nextEl.off("click", onNextClick);
-                $nextEl.removeClass(swiper.params.navigation.disabledClass);
-            }
-            if ($prevEl && $prevEl.length) {
-                $prevEl.off("click", onPrevClick);
-                $prevEl.removeClass(swiper.params.navigation.disabledClass);
-            }
-        }
-        on("init", (() => {
-            if (false === swiper.params.navigation.enabled) disable(); else {
-                init();
-                update();
-            }
-        }));
-        on("toEdge fromEdge lock unlock", (() => {
-            update();
-        }));
-        on("destroy", (() => {
-            destroy();
-        }));
-        on("enable disable", (() => {
-            const {$nextEl, $prevEl} = swiper.navigation;
-            if ($nextEl) $nextEl[swiper.enabled ? "removeClass" : "addClass"](swiper.params.navigation.lockClass);
-            if ($prevEl) $prevEl[swiper.enabled ? "removeClass" : "addClass"](swiper.params.navigation.lockClass);
-        }));
-        on("click", ((_s, e) => {
-            const {$nextEl, $prevEl} = swiper.navigation;
-            const targetEl = e.target;
-            if (swiper.params.navigation.hideOnClick && !dom(targetEl).is($prevEl) && !dom(targetEl).is($nextEl)) {
-                if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl))) return;
-                let isHidden;
-                if ($nextEl) isHidden = $nextEl.hasClass(swiper.params.navigation.hiddenClass); else if ($prevEl) isHidden = $prevEl.hasClass(swiper.params.navigation.hiddenClass);
-                if (true === isHidden) emit("navigationShow"); else emit("navigationHide");
-                if ($nextEl) $nextEl.toggleClass(swiper.params.navigation.hiddenClass);
-                if ($prevEl) $prevEl.toggleClass(swiper.params.navigation.hiddenClass);
-            }
-        }));
-        const enable = () => {
-            swiper.$el.removeClass(swiper.params.navigation.navigationDisabledClass);
-            init();
-            update();
-        };
-        const disable = () => {
-            swiper.$el.addClass(swiper.params.navigation.navigationDisabledClass);
-            destroy();
-        };
-        Object.assign(swiper.navigation, {
-            enable,
-            disable,
-            update,
-            init,
-            destroy
-        });
-    }
     function classes_to_selector_classesToSelector(classes) {
         if (void 0 === classes) classes = "";
         return `.${classes.trim().replace(/([\.:!\/])/g, "\\$1").replace(/ /g, ".")}`;
@@ -4021,165 +3889,6 @@
             stop
         });
     }
-    function freeMode(_ref) {
-        let {swiper, extendParams, emit, once} = _ref;
-        extendParams({
-            freeMode: {
-                enabled: false,
-                momentum: true,
-                momentumRatio: 1,
-                momentumBounce: true,
-                momentumBounceRatio: 1,
-                momentumVelocityRatio: 1,
-                sticky: false,
-                minimumVelocity: .02
-            }
-        });
-        function onTouchStart() {
-            const translate = swiper.getTranslate();
-            swiper.setTranslate(translate);
-            swiper.setTransition(0);
-            swiper.touchEventsData.velocities.length = 0;
-            swiper.freeMode.onTouchEnd({
-                currentPos: swiper.rtl ? swiper.translate : -swiper.translate
-            });
-        }
-        function onTouchMove() {
-            const {touchEventsData: data, touches} = swiper;
-            if (0 === data.velocities.length) data.velocities.push({
-                position: touches[swiper.isHorizontal() ? "startX" : "startY"],
-                time: data.touchStartTime
-            });
-            data.velocities.push({
-                position: touches[swiper.isHorizontal() ? "currentX" : "currentY"],
-                time: utils_now()
-            });
-        }
-        function onTouchEnd(_ref2) {
-            let {currentPos} = _ref2;
-            const {params, $wrapperEl, rtlTranslate: rtl, snapGrid, touchEventsData: data} = swiper;
-            const touchEndTime = utils_now();
-            const timeDiff = touchEndTime - data.touchStartTime;
-            if (currentPos < -swiper.minTranslate()) {
-                swiper.slideTo(swiper.activeIndex);
-                return;
-            }
-            if (currentPos > -swiper.maxTranslate()) {
-                if (swiper.slides.length < snapGrid.length) swiper.slideTo(snapGrid.length - 1); else swiper.slideTo(swiper.slides.length - 1);
-                return;
-            }
-            if (params.freeMode.momentum) {
-                if (data.velocities.length > 1) {
-                    const lastMoveEvent = data.velocities.pop();
-                    const velocityEvent = data.velocities.pop();
-                    const distance = lastMoveEvent.position - velocityEvent.position;
-                    const time = lastMoveEvent.time - velocityEvent.time;
-                    swiper.velocity = distance / time;
-                    swiper.velocity /= 2;
-                    if (Math.abs(swiper.velocity) < params.freeMode.minimumVelocity) swiper.velocity = 0;
-                    if (time > 150 || utils_now() - lastMoveEvent.time > 300) swiper.velocity = 0;
-                } else swiper.velocity = 0;
-                swiper.velocity *= params.freeMode.momentumVelocityRatio;
-                data.velocities.length = 0;
-                let momentumDuration = 1e3 * params.freeMode.momentumRatio;
-                const momentumDistance = swiper.velocity * momentumDuration;
-                let newPosition = swiper.translate + momentumDistance;
-                if (rtl) newPosition = -newPosition;
-                let doBounce = false;
-                let afterBouncePosition;
-                const bounceAmount = 20 * Math.abs(swiper.velocity) * params.freeMode.momentumBounceRatio;
-                let needsLoopFix;
-                if (newPosition < swiper.maxTranslate()) {
-                    if (params.freeMode.momentumBounce) {
-                        if (newPosition + swiper.maxTranslate() < -bounceAmount) newPosition = swiper.maxTranslate() - bounceAmount;
-                        afterBouncePosition = swiper.maxTranslate();
-                        doBounce = true;
-                        data.allowMomentumBounce = true;
-                    } else newPosition = swiper.maxTranslate();
-                    if (params.loop && params.centeredSlides) needsLoopFix = true;
-                } else if (newPosition > swiper.minTranslate()) {
-                    if (params.freeMode.momentumBounce) {
-                        if (newPosition - swiper.minTranslate() > bounceAmount) newPosition = swiper.minTranslate() + bounceAmount;
-                        afterBouncePosition = swiper.minTranslate();
-                        doBounce = true;
-                        data.allowMomentumBounce = true;
-                    } else newPosition = swiper.minTranslate();
-                    if (params.loop && params.centeredSlides) needsLoopFix = true;
-                } else if (params.freeMode.sticky) {
-                    let nextSlide;
-                    for (let j = 0; j < snapGrid.length; j += 1) if (snapGrid[j] > -newPosition) {
-                        nextSlide = j;
-                        break;
-                    }
-                    if (Math.abs(snapGrid[nextSlide] - newPosition) < Math.abs(snapGrid[nextSlide - 1] - newPosition) || "next" === swiper.swipeDirection) newPosition = snapGrid[nextSlide]; else newPosition = snapGrid[nextSlide - 1];
-                    newPosition = -newPosition;
-                }
-                if (needsLoopFix) once("transitionEnd", (() => {
-                    swiper.loopFix();
-                }));
-                if (0 !== swiper.velocity) {
-                    if (rtl) momentumDuration = Math.abs((-newPosition - swiper.translate) / swiper.velocity); else momentumDuration = Math.abs((newPosition - swiper.translate) / swiper.velocity);
-                    if (params.freeMode.sticky) {
-                        const moveDistance = Math.abs((rtl ? -newPosition : newPosition) - swiper.translate);
-                        const currentSlideSize = swiper.slidesSizesGrid[swiper.activeIndex];
-                        if (moveDistance < currentSlideSize) momentumDuration = params.speed; else if (moveDistance < 2 * currentSlideSize) momentumDuration = 1.5 * params.speed; else momentumDuration = 2.5 * params.speed;
-                    }
-                } else if (params.freeMode.sticky) {
-                    swiper.slideToClosest();
-                    return;
-                }
-                if (params.freeMode.momentumBounce && doBounce) {
-                    swiper.updateProgress(afterBouncePosition);
-                    swiper.setTransition(momentumDuration);
-                    swiper.setTranslate(newPosition);
-                    swiper.transitionStart(true, swiper.swipeDirection);
-                    swiper.animating = true;
-                    $wrapperEl.transitionEnd((() => {
-                        if (!swiper || swiper.destroyed || !data.allowMomentumBounce) return;
-                        emit("momentumBounce");
-                        swiper.setTransition(params.speed);
-                        setTimeout((() => {
-                            swiper.setTranslate(afterBouncePosition);
-                            $wrapperEl.transitionEnd((() => {
-                                if (!swiper || swiper.destroyed) return;
-                                swiper.transitionEnd();
-                            }));
-                        }), 0);
-                    }));
-                } else if (swiper.velocity) {
-                    emit("_freeModeNoMomentumRelease");
-                    swiper.updateProgress(newPosition);
-                    swiper.setTransition(momentumDuration);
-                    swiper.setTranslate(newPosition);
-                    swiper.transitionStart(true, swiper.swipeDirection);
-                    if (!swiper.animating) {
-                        swiper.animating = true;
-                        $wrapperEl.transitionEnd((() => {
-                            if (!swiper || swiper.destroyed) return;
-                            swiper.transitionEnd();
-                        }));
-                    }
-                } else swiper.updateProgress(newPosition);
-                swiper.updateActiveIndex();
-                swiper.updateSlidesClasses();
-            } else if (params.freeMode.sticky) {
-                swiper.slideToClosest();
-                return;
-            } else if (params.freeMode) emit("_freeModeNoMomentumRelease");
-            if (!params.freeMode.momentum || timeDiff >= params.longSwipesMs) {
-                swiper.updateProgress();
-                swiper.updateActiveIndex();
-                swiper.updateSlidesClasses();
-            }
-        }
-        Object.assign(swiper, {
-            freeMode: {
-                onTouchStart,
-                onTouchMove,
-                onTouchEnd
-            }
-        });
-    }
     function initSliders() {
         if (document.querySelector(".block-1__slider")) new core(".block-1__slider", {
             modules: [ Pagination, Autoplay ],
@@ -4202,15 +3911,19 @@
             on: {}
         });
         if (document.querySelector(".block-4-tabs__slider")) new core(".block-4-tabs__slider", {
-            modules: [ Navigation ],
+            modules: [ Autoplay ],
             observer: true,
             observeParents: true,
             slidesPerView: 3,
             spaceBetween: 19,
-            speed: 800,
+            speed: 2e3,
             grabCursor: true,
             loop: false,
             watchOverflow: true,
+            autoplay: {
+                delay: 5e3,
+                disableOnInteraction: false
+            },
             pagination: {
                 el: ".block-4-tabs__controlls .block-4-tabs__pagination",
                 clickable: true
@@ -4240,7 +3953,7 @@
             on: {}
         });
         if (document.querySelector(".block-8__slider")) new core(".block-8__slider", {
-            modules: [ freeMode, Autoplay ],
+            modules: [ Autoplay ],
             observer: true,
             observeParents: true,
             slidesPerView: 7,
@@ -4273,19 +3986,19 @@
             on: {}
         });
         if (document.querySelector(".block-9__slider")) new core(".block-9__slider", {
-            modules: [ freeMode, Autoplay ],
+            modules: [ Autoplay ],
             observer: true,
             observeParents: true,
             slidesPerView: 4,
             spaceBetween: 74,
-            speed: 3e3,
+            speed: 1e3,
             grabCursor: true,
             loop: true,
             watchOverflow: true,
             freeMode: true,
             autoplay: {
                 reverseDirection: true,
-                delay: 0,
+                delay: 4e3,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true
             },
@@ -4314,18 +4027,18 @@
             on: {}
         });
         if (document.querySelector(".block-10__slider-top")) new core(".block-10__slider-top", {
-            modules: [ freeMode, Autoplay ],
+            modules: [ Autoplay ],
             observer: true,
             observeParents: true,
             slidesPerView: 3,
             spaceBetween: 0,
-            speed: 3e3,
+            speed: 2e3,
             grabCursor: true,
             watchOverflow: true,
-            freeMode: true,
+            freeMode: false,
             loop: true,
             autoplay: {
-                delay: 0,
+                delay: 2e3,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
                 stopOnLastSlide: false
@@ -4344,7 +4057,7 @@
             on: {}
         });
         if (document.querySelector(".block-10__slider-bottom")) new core(".block-10__slider-bottom", {
-            modules: [ freeMode, Autoplay ],
+            modules: [ Autoplay ],
             observer: true,
             observeParents: true,
             slidesPerView: 5,
@@ -4353,7 +4066,7 @@
             grabCursor: true,
             loop: true,
             watchOverflow: true,
-            freeMode: true,
+            freeMode: false,
             loopFillGroupWithBlank: true,
             loopedSlides: 100,
             loopAdditionalSlides: 100,
