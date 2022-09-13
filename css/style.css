@@ -6400,6 +6400,16 @@ h6 {
     color: #fff;
   }
 
+  .sug-page-block-7__text a {
+    -webkit-transition: color 0.3s ease 0s;
+    -o-transition: color 0.3s ease 0s;
+    transition: color 0.3s ease 0s;
+  }
+
+  .sug-page-block-7__text a:hover {
+    color: #f9ae19;
+  }
+
   .bgs-page-block-6__text a {
     -webkit-transition: color 0.3s ease 0s;
     -o-transition: color 0.3s ease 0s;
