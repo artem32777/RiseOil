@@ -3995,7 +3995,6 @@
             grabCursor: true,
             loop: true,
             watchOverflow: true,
-            freeMode: true,
             autoplay: {
                 reverseDirection: true,
                 delay: 4e3,
@@ -4037,11 +4036,11 @@
             watchOverflow: true,
             freeMode: false,
             loop: true,
+            loopAdditionalSlides: 20,
             autoplay: {
-                delay: 2e3,
+                delay: 0,
                 disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-                stopOnLastSlide: false
+                pauseOnMouseEnter: true
             },
             breakpoints: {
                 320: {
@@ -4066,14 +4065,14 @@
             grabCursor: true,
             loop: true,
             watchOverflow: true,
-            freeMode: false,
-            loopFillGroupWithBlank: true,
-            loopedSlides: 100,
-            loopAdditionalSlides: 100,
+            freeMode: true,
+            loopAdditionalSlides: 20,
+            slidesOffsetBefore: 1500,
             autoplay: {
                 reverseDirection: true,
                 delay: 0,
                 disableOnInteraction: false,
+                stopOnLastSlide: false,
                 pauseOnMouseEnter: true
             },
             breakpoints: {
@@ -4198,6 +4197,24 @@
     };
     const da = new DynamicAdapt("max");
     da.init();
+    let inputPhone = document.getElementById("inputPhone");
+    inputPhone.oninput = () => phoneMask(inputPhone);
+    function phoneMask(inputEl) {
+        let patStringArr = "+7(___)___-__-__".split("");
+        let arrPush = [ 3, 4, 5, 7, 8, 9, 11, 12, 14, 15 ];
+        let val = inputEl.value;
+        let arr = val.replace(/\D+/g, "").split("").splice(1);
+        let n;
+        let ni;
+        arr.forEach(((s, i) => {
+            n = arrPush[i];
+            patStringArr[n] = s;
+            ni = i;
+        }));
+        arr.length < 10 ? inputEl.style.color = "black" : inputEl.style.color = "green";
+        inputEl.value = patStringArr.join("");
+        n ? inputEl.setSelectionRange(n + 1, n + 1) : inputEl.setSelectionRange(17, 17);
+    }
     window["FLS"] = true;
     isWebp();
     tabs();
