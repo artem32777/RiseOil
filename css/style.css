@@ -2863,6 +2863,8 @@ body {
 
 .block-10__slider-top {
   overflow: visible !important;
+  max-width: 90rem;
+  margin: auto;
 }
 
 .block-10__slide-top {
@@ -2960,6 +2962,8 @@ body {
 
 .block-10__slider-bottom {
   overflow: visible !important;
+  max-width: 90rem;
+  margin: auto;
 }
 
 .block-10__slide-bottom {
