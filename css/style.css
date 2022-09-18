@@ -1884,9 +1884,9 @@ body {
 
 .block-1__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
   opacity: 1 !important;
-  -webkit-transition: width 5.5s linear 0s;
-  -o-transition: width 5.5s linear 0s;
-  transition: width 5.5s linear 0s;
+  -webkit-transition: width 7.5s linear 0s;
+  -o-transition: width 7.5s linear 0s;
+  transition: width 7.5s linear 0s;
   width: 100%;
 }
 
@@ -2134,6 +2134,7 @@ body {
 
 .block-2__image {
   position: relative;
+  overflow: hidden;
 }
 
 .block-2__image img {
@@ -9360,14 +9361,12 @@ body {
   .block-5-tab-item__button:hover,
   .block-4__button:hover,
   .block-2__button:hover {
-    -webkit-transform: translate(0px, -0.2px);
-        -ms-transform: translate(0px, -0.2px);
-            transform: translate(0px, -0.2px);
+    -webkit-transform: translate(0px, -1px);
+        -ms-transform: translate(0px, -1px);
+            transform: translate(0px, -1px);
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.94)), color-stop(52.08%, rgba(255, 255, 255, 0.24)), color-stop(52.09%, rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.29))), -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.4)), color-stop(51.56%, rgba(255, 255, 255, 0))), #f9ae19;
     background: -o-linear-gradient(top, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.24) 52.08%, rgba(255, 255, 255, 0) 52.09%, rgba(255, 255, 255, 0.29) 100%), -o-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 51.56%), #f9ae19;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.24) 52.08%, rgba(255, 255, 255, 0) 52.09%, rgba(255, 255, 255, 0.29) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 51.56%), #f9ae19;
-    -webkit-box-shadow: 1px 1px 2px #000, inset 0 1px 3px 2px #fff;
-            box-shadow: 1px 1px 2px #000, inset 0 1px 3px 2px #fff;
   }
 
   .btn-2,
@@ -9448,18 +9447,35 @@ body {
             filter: brightness(3);
   }
 
+  .block-2__image {
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+  }
+
+  .block-2__image:hover {
+    -webkit-transform: scale(1.03);
+        -ms-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+
   .block-2__image img {
-    -webkit-transition: -webkit-transform 0.3s ease 0s;
-    transition: -webkit-transform 0.3s ease 0s;
-    -o-transition: transform 0.3s ease 0s;
-    transition: transform 0.3s ease 0s;
-    transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+    -webkit-transition: -webkit-transform 1.5s ease 0s;
+    transition: -webkit-transform 1.5s ease 0s;
+    -o-transition: transform 1.5s ease 0s;
+    transition: transform 1.5s ease 0s;
+    transition: transform 1.5s ease 0s, -webkit-transform 1.5s ease 0s;
   }
 
   .block-2__image img:hover {
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transition: -webkit-transform 7s ease 0s;
+    transition: -webkit-transform 7s ease 0s;
+    -o-transition: transform 7s ease 0s;
+    transition: transform 7s ease 0s;
+    transition: transform 7s ease 0s, -webkit-transform 7s ease 0s;
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2);
   }
 
   .block-4-tabs__slide {

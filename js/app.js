@@ -4412,12 +4412,12 @@
             observeParents: true,
             slidesPerView: 1,
             spaceBetween: 0,
-            speed: 800,
+            speed: 1600,
             grabCursor: true,
             loop: true,
             watchOverflow: true,
             autoplay: {
-                delay: 5e3,
+                delay: 6e3,
                 disableOnInteraction: false
             },
             pagination: {
