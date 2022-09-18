@@ -2301,6 +2301,7 @@ body {
 
 .block-4-tabs__slide {
   max-width: 26.25rem;
+  overflow: hidden;
 }
 
 .block-4-tabs__slide img {
@@ -2866,10 +2867,12 @@ body {
 
 .block-10__slide-top {
   max-width: 30rem;
+  overflow: hidden;
 }
 
 .block-10__slide-top-image {
   max-height: 15.8125rem;
+  overflow: hidden;
 }
 
 .block-10__slide-top-image img {
@@ -2880,6 +2883,9 @@ body {
 .block-10__slide-top-info {
   background-color: #1D1D1D;
   padding-right: 0.3125rem;
+  -webkit-transition: color 0.3s ease 0s;
+  -o-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
 }
 
 @supports (padding-left: clamp( 0.625rem , 0.2487623762rem  +  1.8811881188vw , 1.8125rem )) {
@@ -2962,6 +2968,7 @@ body {
 
 .block-10__slide-bottom-image {
   max-height: 14.375rem;
+  overflow: hidden;
 }
 
 .block-10__slide-bottom-image img {
@@ -2971,6 +2978,9 @@ body {
 .block-10__slide-bottom-info {
   background-color: #1D1D1D;
   padding-right: 0.3125rem;
+  -webkit-transition: color 0.3s ease 0s;
+  -o-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
 }
 
 @supports (padding-top: clamp( 0.625rem , 0.4467821782rem  +  0.8910891089vw , 1.1875rem )) {
@@ -8448,7 +8458,7 @@ body {
   }
 
   .header-main-block__menu {
-    padding-bottom: 1.875rem;
+    padding-bottom: 12.5rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -8480,7 +8490,6 @@ body {
 
   .menu-open .header-main-block__menu {
     left: 0;
-    overflow: auto;
   }
 
   .header-main-block__link._spoller-active::before {
@@ -9449,18 +9458,30 @@ body {
             transform: scale(1.1);
   }
 
+  .block-4-tabs__slide {
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+  }
+
+  .block-4-tabs__slide:hover {
+    -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+            transform: scale(1.02);
+  }
+
   .block-4-tabs__slide img {
-    -webkit-transition: -webkit-transform 0.3s ease 0s;
-    transition: -webkit-transform 0.3s ease 0s;
-    -o-transition: transform 0.3s ease 0s;
-    transition: transform 0.3s ease 0s;
-    transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+    -webkit-transition: -webkit-transform 5s ease 0s;
+    transition: -webkit-transform 5s ease 0s;
+    -o-transition: transform 5s ease 0s;
+    transition: transform 5s ease 0s;
+    transition: transform 5s ease 0s, -webkit-transform 5s ease 0s;
   }
 
   .block-4-tabs__slide img:hover {
-    -webkit-transform: scale(1.03);
-        -ms-transform: scale(1.03);
-            transform: scale(1.03);
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2);
   }
 
   .block-5-tab-item__image {
@@ -9509,10 +9530,27 @@ body {
     transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
   }
 
-  .block-10__slide-top:hover {
-    -webkit-transform: translate(0px, -5px);
-        -ms-transform: translate(0px, -5px);
-            transform: translate(0px, -5px);
+  .block-10__slide-top:hover .block-10__slide-top-info {
+    color: #f9ae19;
+  }
+
+  .block-10__slide-top-image img {
+    -webkit-transition: -webkit-transform 1.5s ease 0s;
+    transition: -webkit-transform 1.5s ease 0s;
+    -o-transition: transform 1.5s ease 0s;
+    transition: transform 1.5s ease 0s;
+    transition: transform 1.5s ease 0s, -webkit-transform 1.5s ease 0s;
+  }
+
+  .block-10__slide-top-image img:hover {
+    -webkit-transition: -webkit-transform 7s ease 0s;
+    transition: -webkit-transform 7s ease 0s;
+    -o-transition: transform 7s ease 0s;
+    transition: transform 7s ease 0s;
+    transition: transform 7s ease 0s, -webkit-transform 7s ease 0s;
+    -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+            transform: scale(1.3);
   }
 
   .block-10__slide-bottom {
@@ -9523,10 +9561,27 @@ body {
     transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
   }
 
-  .block-10__slide-bottom:hover {
-    -webkit-transform: translate(0px, 5px);
-        -ms-transform: translate(0px, 5px);
-            transform: translate(0px, 5px);
+  .block-10__slide-bottom:hover .block-10__slide-bottom-info {
+    color: #f9ae19;
+  }
+
+  .block-10__slide-bottom-image img {
+    -webkit-transition: -webkit-transform 1.5s ease 0s;
+    transition: -webkit-transform 1.5s ease 0s;
+    -o-transition: transform 1.5s ease 0s;
+    transition: transform 1.5s ease 0s;
+    transition: transform 1.5s ease 0s, -webkit-transform 1.5s ease 0s;
+  }
+
+  .block-10__slide-bottom-image img:hover {
+    -webkit-transition: -webkit-transform 5s ease 0s;
+    transition: -webkit-transform 5s ease 0s;
+    -o-transition: transform 5s ease 0s;
+    transition: transform 5s ease 0s;
+    transition: transform 5s ease 0s, -webkit-transform 5s ease 0s;
+    -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+            transform: scale(1.3);
   }
 
   .team-page__item {
