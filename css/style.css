@@ -1129,6 +1129,65 @@ body {
   background: url("../img/main-page/block-6/upload.svg") center/100% no-repeat;
 }
 
+.circle-big,
+.bitum-fas-page-block-4__decoration_circle-big {
+  border-radius: 50%;
+  width: 1.9375rem;
+  height: 1.9375rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #F9D119;
+  z-index: 1;
+}
+
+.circle-small,
+.bitum-fas-page-block-4__decoration_circle-small {
+  width: 0.9375rem;
+  height: 0.9375rem;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.decoration-line,
+.bitum-fas-page-block-4__decoration {
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+}
+
+.decoration-line::after,
+.bitum-fas-page-block-4__decoration::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  width: 100%;
+  height: 0.125rem;
+  background-color: #AAA6A6;
+}
+
+@supports (max-width: clamp( 34.375rem , -8.1781914894rem  +  88.6524822695vw , 50rem )) {
+  .decoration-line::after,
+  .bitum-fas-page-block-4__decoration::after {
+    max-width: clamp( 34.375rem , -8.1781914894rem  +  88.6524822695vw , 50rem );
+  }
+}
+
+@supports not (max-width: clamp( 34.375rem , -8.1781914894rem  +  88.6524822695vw , 50rem )) {
+  .decoration-line::after,
+  .bitum-fas-page-block-4__decoration::after {
+    max-width: calc(34.375rem + 15.625 * (100vw - 48rem) / 17.625);
+  }
+}
+
 .header {
   position: absolute;
   top: 0;
@@ -1223,7 +1282,18 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 1.25rem;
+}
+
+@supports (gap: clamp( 0.625rem , -1.387987013rem  +  3.2467532468vw , 1.25rem )) {
+  .header-main-block__container {
+    gap: clamp( 0.625rem , -1.387987013rem  +  3.2467532468vw , 1.25rem );
+  }
+}
+
+@supports not (gap: clamp( 0.625rem , -1.387987013rem  +  3.2467532468vw , 1.25rem )) {
+  .header-main-block__container {
+    gap: calc(0.625rem + 0.625 * (100vw - 62rem) / 19.25);
+  }
 }
 
 .header-main-block__logo {
@@ -7038,49 +7108,32 @@ body {
   margin-bottom: 1.5625rem;
 }
 
-.bitum-fas-page-block-4__decoration {
-  display: -ms-grid;
-  display: grid;
+@supports (max-width: clamp( 34.375rem , -8.1781914894rem  +  88.6524822695vw , 50rem )) {
+  .bitum-fas-page-block-4__decoration_01::after {
+    max-width: clamp( 34.375rem , -8.1781914894rem  +  88.6524822695vw , 50rem );
+  }
 }
 
-.bitum-fas-page-block-4__decoration_01 {
-  position: relative;
+@supports not (max-width: clamp( 34.375rem , -8.1781914894rem  +  88.6524822695vw , 50rem )) {
+  .bitum-fas-page-block-4__decoration_01::after {
+    max-width: calc(34.375rem + 15.625 * (100vw - 48rem) / 17.625);
+  }
 }
 
-.bitum-fas-page-block-4__decoration_01::after {
-  content: "";
-  position: absolute;
-  bottom: 50%;
-  left: 0;
-  width: 100%;
-  height: 0.125rem;
-  background-color: #AAA6A6;
-  max-width: 50rem;
+.bitum-fas-page-block-4__decoration_02::after {
+  max-width: 31.25rem;
 }
 
-.bitum-fas-page-block-4__decoration_circle-big {
-  border-radius: 50%;
-  width: 1.9375rem;
-  height: 1.9375rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: #F9D119;
-  z-index: 1;
+@supports (max-width: clamp( 31.25rem , 42.8856382979rem  +  -17.7304964539vw , 34.375rem )) {
+  .bitum-fas-page-block-4__decoration_02::after {
+    max-width: clamp( 31.25rem , 42.8856382979rem  +  -17.7304964539vw , 34.375rem );
+  }
 }
 
-.bitum-fas-page-block-4__decoration_circle-small {
-  width: 0.9375rem;
-  height: 0.9375rem;
-  border-radius: 50%;
-  background-color: #fff;
-  z-index: 2;
+@supports not (max-width: clamp( 31.25rem , 42.8856382979rem  +  -17.7304964539vw , 34.375rem )) {
+  .bitum-fas-page-block-4__decoration_02::after {
+    max-width: calc(34.375rem + -3.125 * (100vw - 48rem) / 17.625);
+  }
 }
 
 .bitum-fas-page-block-4__items {
@@ -7088,15 +7141,15 @@ body {
   display: grid;
 }
 
-@supports (margin-bottom: clamp( 1.875rem , 0.2314356436rem  +  8.2178217822vw , 7.0625rem )) {
+@supports (margin-bottom: clamp( 1.875rem , 0.7264851485rem  +  5.7425742574vw , 5.5rem )) {
   .bitum-fas-page-block-4__items {
-    margin-bottom: clamp( 1.875rem , 0.2314356436rem  +  8.2178217822vw , 7.0625rem );
+    margin-bottom: clamp( 1.875rem , 0.7264851485rem  +  5.7425742574vw , 5.5rem );
   }
 }
 
-@supports not (margin-bottom: clamp( 1.875rem , 0.2314356436rem  +  8.2178217822vw , 7.0625rem )) {
+@supports not (margin-bottom: clamp( 1.875rem , 0.7264851485rem  +  5.7425742574vw , 5.5rem )) {
   .bitum-fas-page-block-4__items {
-    margin-bottom: calc(1.875rem + 5.1875 * (100vw - 20rem) / 63.125);
+    margin-bottom: calc(1.875rem + 3.625 * (100vw - 20rem) / 63.125);
   }
 }
 
@@ -7767,10 +7820,10 @@ body {
     left: 0;
     width: 100%;
     height: 0.03125rem;
-    background-color: #fff;
     -webkit-transition: color 0.3s ease 0s;
     -o-transition: color 0.3s ease 0s;
     transition: color 0.3s ease 0s;
+    background-color: #fff;
   }
 
 @supports (padding-top: clamp( 0.625rem , 0.228960396rem  +  1.9801980198vw , 1.875rem )) {
@@ -7950,6 +8003,11 @@ body {
     -ms-grid-columns: minmax(10.625rem, 18.75rem) minmax(10.625rem, 15.3125rem) minmax(10.625rem, 15.5rem) minmax(10.625rem, 12.5rem);
     grid-template-columns: minmax(10.625rem, 18.75rem) minmax(10.625rem, 15.3125rem) minmax(10.625rem, 15.5rem) minmax(10.625rem, 12.5rem);
     margin-bottom: 0.625rem;
+  }
+
+  .bitum-fas-page-block-4__decoration_02 {
+    -ms-grid-columns: 22.5rem 22.1875rem 213px;
+    grid-template-columns: 22.5rem 22.1875rem 213px;
   }
 
   .bitum-fas-page-block-4__items {
@@ -8374,15 +8432,16 @@ body {
             transform: translate(10px, 0px);
   }
 
-  .bitum-fas-page-block-4__decoration {
-    -ms-grid-columns: 22.0625rem 356px 213px;
-    grid-template-columns: 22.0625rem 356px 213px;
-  }
-
   .bitum-fas-page-block-4__decoration_01 {
     -webkit-transform: translate(28px, 0px);
         -ms-transform: translate(28px, 0px);
             transform: translate(28px, 0px);
+  }
+
+  .bitum-fas-page-block-4__decoration_02 {
+    -webkit-transform: translate(37px, 0px);
+        -ms-transform: translate(37px, 0px);
+            transform: translate(37px, 0px);
   }
 
   .bitum-fas-page-block-5__item {
@@ -8884,6 +8943,14 @@ body {
     margin-right: -0.9375rem;
   }
 
+  .decoration-line::after,
+  .bitum-fas-page-block-4__decoration::after {
+    width: 0.125rem;
+    height: 100%;
+    left: 47%;
+    bottom: 0;
+  }
+
   .footer-bottom-block__container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -9077,13 +9144,6 @@ body {
     gap: 3.75rem;
   }
 
-  .bitum-fas-page-block-4__decoration_01::after {
-    width: 0.125rem;
-    height: 100%;
-    left: 47%;
-    bottom: 0;
-  }
-
   .bitum-fas-page-block-4__items {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -9118,7 +9178,7 @@ body {
   }
 
   .bitum-fas-page-block-4__info {
-    padding-right: 1.5625rem;
+    padding-right: 2.1875rem;
   }
 
   .bitum-fas-page-block-10__slider {
