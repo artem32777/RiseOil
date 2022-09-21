@@ -1282,6 +1282,8 @@ body {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   z-index: 21;
+  max-width: 8.5rem;
+  max-height: 2.75rem;
 }
 
 .header-main-block__logo img {
