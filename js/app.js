@@ -4637,6 +4637,39 @@
             },
             on: {}
         });
+        if (document.querySelector(".bitum-fas-page-block-9__slider")) new core(".bitum-fas-page-block-9__slider", {
+            modules: [ Navigation, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 2,
+            spaceBetween: 16,
+            speed: 2e3,
+            grabCursor: true,
+            loop: true,
+            watchOverflow: true,
+            freeMode: true,
+            loopAdditionalSlides: 50,
+            autoplay: {
+                reverseDirection: true,
+                delay: 1e3,
+                disableOnInteraction: false,
+                stopOnLastSlide: false,
+                pauseOnMouseEnter: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1
+                },
+                650: {
+                    slidesPerView: 2
+                }
+            },
+            navigation: {
+                prevEl: ".bitum-fas-page-block-9__arrows .bitum-fas-page-block-9__arrow_prev",
+                nextEl: ".bitum-fas-page-block-9__arrows .bitum-fas-page-block-9__arrow_next"
+            },
+            on: {}
+        });
     }
     window.addEventListener("load", (function(e) {
         initSliders();
