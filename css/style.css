@@ -1638,9 +1638,20 @@ body::after {
 [class~=request__body_white] {
   max-width: 19.5rem !important;
   padding: 0;
-  margin: auto;
+  margin: auto !important;
   background-color: #fff;
   color: #000;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
 }
 
 [class~=request__requests_white] {
