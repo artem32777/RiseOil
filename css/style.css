@@ -1636,7 +1636,7 @@ body::after {
 }
 
 [class~=request__body_white] {
-  max-width: 19.5rem;
+  max-width: 19.5rem !important;
   padding: 0;
   margin: auto;
   background-color: #fff;
@@ -1716,6 +1716,7 @@ body::after {
 }
 
 [class~=request__input_white] {
+  max-width: 19.5rem !important;
   line-height: 145%;
   color: #555555;
   background-color: #fff;
