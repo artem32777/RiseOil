@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220922192333">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220923184714">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,7 +144,7 @@
 											Мы стараемся делать это быстро и ответственно</div>
 									</div>
 									<ul class="header-submenu__items">
-										<li class="header-submenu__item"><a href="#" class="header-submenu__link">Новости</a></li>
+										<li class="header-submenu__item"><a href="news.html" class="header-submenu__link">Новости</a></li>
 									</ul>
 								</div>
 							</div>
@@ -304,20 +304,22 @@
 						на e-mail: <a href="mailto:info@bitum-rise.ru">info@bitum-rise.ru.</a> и
 						/или связаться с Департаментом трейдингасветлых нефтепродуктов по
 						телефону: <a href="tel:78002229225">+7 800 222 9225</a></div>
-					<div class="bgs-page-block-6__form-container">
-						<h2 class="bgs-page-block-6__title">Отправить заявку</h2>
-						<form data-dev action="#" class="bgs-page-block-6__form">
-							<input data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Имя" class="bgs-page-block-6__input">
-							<input data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Телефон" class="bgs-page-block-6__input">
-							<button type="submit" class="bgs-page-block-6__button">Отправить</button>
-						</form>
-						<div class="bgs-page-block-6__privacy">
-							Отправляя заявку. вы соглашаетесь с <a href="#" class="bgs-page-block-6__privacy-link">политикой
-								конфиденциальности</a>
-						</div>
-						<div class="bgs-page-block-6__requests">
-							<a href="#" class="bgs-page-block-6__download">Скачать форму заявки</a>
-							<a href="#" class="bgs-page-block-6__upload">Прикрепить заявку</a>
+					<div class="bgs-page-block-6__form-request-container">
+						<div class="request__body undefined">
+							<h2 class="request__title">Отправить заявку</h2>
+							<form data-popup-message="#request-popup" data-dev action="#" class="request__form">
+								<input data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Имя" class="request__input undefined">
+								<input data-required id="inputPhone" autocomplete="off" type="text" name="form[]" data-error="" placeholder="Телефон" class="request__input undefined">
+								<button type="submit" class="request__button">Отправить</button>
+							</form>
+							<div class="request__privacy undefined">
+								Отправляя заявку. вы соглашаетесь с <a href="#" class="request__privacy-link">политикой
+									конфиденциальности</a>
+							</div>
+							<div class="request__requests undefined">
+								<a href="#" class="request__download">Скачать форму заявки</a>
+								<a href="#" class="request__upload">Прикрепить заявку</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -395,7 +397,7 @@
 					<div class="footer-main-block__column">
 						<div data-spoller class="footer-main-block__title"><span>Новости</span></div>
 						<ul class="footer-main-block__items">
-							<li class="footer-main-block__item"><a href="#" class="footer-main-block__link">Новости</a></li>
+							<li class="footer-main-block__item"><a href="news.html" class="footer-main-block__link">Новости</a></li>
 						</ul>
 					</div>
 					<div class="footer-main-block__column">
@@ -441,19 +443,17 @@
 			</div>
 		</footer>
 	</div>
-	<!-- 
-<div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
+	<div id="request-popup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close"></button>
+				<div class="popup__text">
+					Спасибо за отправку! Мы свяжемся с Вами в течении 15 минут!
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
- -->
-
-	<script src="js/app.min.js?_v=20220922192333"></script>
+	<script src="js/app.min.js?_v=20220923184714"></script>
 </body>
 
 </html>
