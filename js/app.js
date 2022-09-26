@@ -4699,6 +4699,43 @@
             },
             on: {}
         });
+        if (document.querySelector(".mails-page__slider")) new core(".mails-page__slider", {
+            modules: [ Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 4,
+            spaceBetween: 20,
+            speed: 2e3,
+            grabCursor: true,
+            loop: true,
+            watchOverflow: true,
+            freeMode: true,
+            loopAdditionalSlides: 50,
+            autoplay: {
+                delay: 1e3,
+                disableOnInteraction: false,
+                stopOnLastSlide: false,
+                pauseOnMouseEnter: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 15
+                },
+                600: {
+                    slidesPerView: 2,
+                    spaceBetween: 15
+                },
+                900: {
+                    slidesPerView: 3,
+                    spaceBetween: 15
+                },
+                1200: {
+                    slidesPerView: 4
+                }
+            },
+            on: {}
+        });
     }
     window.addEventListener("load", (function(e) {
         initSliders();
