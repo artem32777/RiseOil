@@ -4668,6 +4668,38 @@
             },
             on: {}
         });
+        if (document.querySelector(".bitum-pg-page-block-8__slider")) new core(".bitum-pg-page-block-8__slider", {
+            modules: [ Navigation, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 2,
+            spaceBetween: 16,
+            speed: 2e3,
+            grabCursor: true,
+            loop: true,
+            watchOverflow: true,
+            freeMode: true,
+            loopAdditionalSlides: 50,
+            autoplay: {
+                delay: 1e3,
+                disableOnInteraction: false,
+                stopOnLastSlide: false,
+                pauseOnMouseEnter: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1
+                },
+                650: {
+                    slidesPerView: 2
+                }
+            },
+            navigation: {
+                prevEl: ".bitum-pg-page-block-8__arrows .bitum-pg-page-block-8__arrow_prev",
+                nextEl: ".bitum-pg-page-block-8__arrows .bitum-pg-page-block-8__arrow_next"
+            },
+            on: {}
+        });
         if (document.querySelector(".news-page-block-2__slider")) new core(".news-page-block-2__slider", {
             modules: [ Autoplay ],
             observer: true,
