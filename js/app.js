@@ -4584,6 +4584,7 @@
             freeMode: false,
             loopAdditionalSlides: 50,
             initialSlide: 10,
+            autoHeight: true,
             autoplay: {
                 reverseDirection: true,
                 delay: 800,
