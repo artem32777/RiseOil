@@ -430,7 +430,7 @@ body::after {
   color: #1D1D1D;
 }
 
-@supports (font-size: clamp( 1.75rem , 1.5714285714rem  +  0.8928571429vw , 2.125rem )) {
+@supports (font-size: clamp( 1.25rem , 0.8333333333rem  +  2.0833333333vw , 2.125rem )) {
   .title,
   .bitum-page-block-10__title,
   .team-page__title,
@@ -444,11 +444,11 @@ body::after {
   .block-3__title,
   .block-2__title,
   .block-1-slide__title {
-    font-size: clamp( 1.75rem , 1.5714285714rem  +  0.8928571429vw , 2.125rem );
+    font-size: clamp( 1.25rem , 0.8333333333rem  +  2.0833333333vw , 2.125rem );
   }
 }
 
-@supports not (font-size: clamp( 1.75rem , 1.5714285714rem  +  0.8928571429vw , 2.125rem )) {
+@supports not (font-size: clamp( 1.25rem , 0.8333333333rem  +  2.0833333333vw , 2.125rem )) {
   .title,
   .bitum-page-block-10__title,
   .team-page__title,
@@ -462,7 +462,7 @@ body::after {
   .block-3__title,
   .block-2__title,
   .block-1-slide__title {
-    font-size: calc(1.75rem + 0.375 * (100vw - 20rem) / 42);
+    font-size: calc(1.25rem + 0.875 * (100vw - 20rem) / 42);
   }
 }
 
@@ -2319,6 +2319,16 @@ body::after {
   position: relative;
   color: #fff;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @supports (width: clamp( 19.0625rem , 9.5386904762rem  +  47.619047619vw , 39.0625rem )) {
@@ -2358,15 +2368,15 @@ body::after {
   color: #fff;
 }
 
-@supports (padding-top: clamp( 2.1875rem , -3.9136904762rem  +  30.505952381vw , 15rem )) {
+@supports (padding-top: clamp( 2.5rem , -9.21875rem  +  39.0625vw , 15rem )) {
   .block-1-slide__title {
-    padding-top: clamp( 2.1875rem , -3.9136904762rem  +  30.505952381vw , 15rem );
+    padding-top: clamp( 2.5rem , -9.21875rem  +  39.0625vw , 15rem );
   }
 }
 
-@supports not (padding-top: clamp( 2.1875rem , -3.9136904762rem  +  30.505952381vw , 15rem )) {
+@supports not (padding-top: clamp( 2.5rem , -9.21875rem  +  39.0625vw , 15rem )) {
   .block-1-slide__title {
-    padding-top: calc(2.1875rem + 12.8125 * (100vw - 20rem) / 42);
+    padding-top: calc(2.5rem + 12.5 * (100vw - 30rem) / 32);
   }
 }
 
@@ -2426,15 +2436,15 @@ body::after {
   }
 }
 
-@supports (font-size: clamp( 0.9375rem , 1.1220238095rem  +  -0.2976190476vw , 1.0625rem )) {
+@supports (font-size: clamp( 0.8125rem , 0.7728960396rem  +  0.198019802vw , 0.9375rem )) {
   .block-1-slide__text {
-    font-size: clamp( 0.9375rem , 1.1220238095rem  +  -0.2976190476vw , 1.0625rem );
+    font-size: clamp( 0.8125rem , 0.7728960396rem  +  0.198019802vw , 0.9375rem );
   }
 }
 
-@supports not (font-size: clamp( 0.9375rem , 1.1220238095rem  +  -0.2976190476vw , 1.0625rem )) {
+@supports not (font-size: clamp( 0.8125rem , 0.7728960396rem  +  0.198019802vw , 0.9375rem )) {
   .block-1-slide__text {
-    font-size: calc(1.0625rem + -0.125 * (100vw - 20rem) / 42);
+    font-size: calc(0.8125rem + 0.125 * (100vw - 20rem) / 63.125);
   }
 }
 
@@ -3314,6 +3324,11 @@ body::after {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.25rem;
+  max-width: 23.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
 
 @supports (font-size: clamp( 1rem , 0.9207920792rem  +  0.396039604vw , 1.25rem )) {
@@ -3424,6 +3439,11 @@ body::after {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.1875;
+  max-width: 23.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
 
 .block-10__slide-bottom-text {
@@ -15164,6 +15184,10 @@ body::after {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+
+  .block-1-slide__title {
+    max-width: 15.625rem;
   }
 
   .block-3__item:not(:last-child) {
