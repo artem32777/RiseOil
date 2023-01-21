@@ -5047,7 +5047,7 @@
                 on: {}
             });
             if (document.querySelector(".block-8__slider")) new core(".block-8__slider", {
-                modules: [ Autoplay ],
+                modules: [ Autoplay, Lazy ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 7,
@@ -5057,6 +5057,11 @@
                 loop: true,
                 watchOverflow: true,
                 freeMode: true,
+                loadPrevNext: true,
+                watchSlidesProgress: true,
+                watchOverflow: true,
+                preloadImages: false,
+                lazy: true,
                 autoplay: {
                     delay: 0,
                     disableOnInteraction: false,
@@ -5080,7 +5085,7 @@
                 on: {}
             });
             if (document.querySelector(".block-9__slider")) new core(".block-9__slider", {
-                modules: [ Autoplay ],
+                modules: [ Autoplay, Lazy ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 4,
@@ -5089,6 +5094,11 @@
                 grabCursor: true,
                 loop: true,
                 watchOverflow: true,
+                loadPrevNext: true,
+                watchSlidesProgress: true,
+                watchOverflow: true,
+                preloadImages: false,
+                lazy: true,
                 autoplay: {
                     reverseDirection: true,
                     delay: 4e3,
@@ -5120,7 +5130,7 @@
                 on: {}
             });
             if (document.querySelector(".block-10__slider-top")) new core(".block-10__slider-top", {
-                modules: [ Autoplay ],
+                modules: [ Autoplay, Lazy ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 3,
@@ -5131,6 +5141,11 @@
                 freeMode: false,
                 loop: true,
                 loopAdditionalSlides: 50,
+                loadPrevNext: true,
+                watchSlidesProgress: true,
+                watchOverflow: true,
+                preloadImages: false,
+                lazy: true,
                 autoplay: {
                     delay: 800,
                     disableOnInteraction: false,
@@ -5150,7 +5165,7 @@
                 on: {}
             });
             if (document.querySelector(".block-10__slider-bottom")) new core(".block-10__slider-bottom", {
-                modules: [ Autoplay ],
+                modules: [ Autoplay, Lazy ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 5,
@@ -5163,6 +5178,11 @@
                 loopAdditionalSlides: 50,
                 initialSlide: 10,
                 autoHeight: true,
+                loadPrevNext: true,
+                watchSlidesProgress: true,
+                watchOverflow: true,
+                preloadImages: false,
+                lazy: true,
                 autoplay: {
                     reverseDirection: true,
                     delay: 800,
@@ -5184,7 +5204,7 @@
                 on: {}
             });
             if (document.querySelector(".bitum-page-block-10__slider")) new core(".bitum-page-block-10__slider", {
-                modules: [ Navigation, Autoplay ],
+                modules: [ Navigation, Autoplay, Lazy ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 2,
@@ -5195,6 +5215,11 @@
                 watchOverflow: true,
                 freeMode: true,
                 loopAdditionalSlides: 50,
+                loadPrevNext: true,
+                watchSlidesProgress: true,
+                watchOverflow: true,
+                preloadImages: false,
+                lazy: true,
                 autoplay: {
                     delay: 1e3,
                     disableOnInteraction: false,
@@ -5216,7 +5241,7 @@
                 on: {}
             });
             if (document.querySelector(".bitum-fas-page-block-9__slider")) new core(".bitum-fas-page-block-9__slider", {
-                modules: [ Navigation, Autoplay ],
+                modules: [ Navigation, Autoplay, Lazy ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 2,
@@ -5227,6 +5252,11 @@
                 watchOverflow: true,
                 freeMode: true,
                 loopAdditionalSlides: 50,
+                loadPrevNext: true,
+                watchSlidesProgress: true,
+                watchOverflow: true,
+                preloadImages: false,
+                lazy: true,
                 autoplay: {
                     delay: 1e3,
                     disableOnInteraction: false,
