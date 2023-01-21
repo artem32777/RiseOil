@@ -6,7 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221025181327">
+	<link rel="preload" as="font" href="/fonts/icons.woff2" type="font/woff2" crossorigin>
+	<link rel="preload" as="font" href="/fonts/Inter-ExtraLight.woff2" type="font/woff2" crossorigin>
+	<link rel="preload" as="font" href="/fonts/Inter-Medium.woff2" type="font/woff2" crossorigin>
+	<link rel="preload" as="font" href="/fonts/Inter-Regular.woff2" type="font/woff2" crossorigin>
+	<link rel="preload" as="font" href="/fonts/Inter-SemiBold.woff2" type="font/woff2" crossorigin>
+	<link rel="preload" as="font" href="/fonts/Inter-Thin.woff2" type="font/woff2" crossorigin>
+
+	<link rel="stylesheet" href="css/style.min.css?_v=20230121161338">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -169,15 +176,15 @@
 			</nav>
 		</header>
 
-		<div class="preloader">
-			<div class="preloader__image">
-				<img class="preloader__image-white" src="img/preloader/WhitePetals.svg" alt="">
-				<img class="preloader__image-yellow" src="img/preloader/YellowElements.svg" alt="">
-				<div class="preloader__image-letter">
-					<p>R</p>
-				</div>
-			</div>
+		<!-- <div class="preloader">
+	<div class="preloader__image">
+		<img class="preloader__image-white" src="img/preloader/WhitePetals.svg" alt="">
+		<img class="preloader__image-yellow" src="img/preloader/YellowElements.svg" alt="">
+		<div class="preloader__image-letter">
+			<p>R</p>
 		</div>
+	</div>
+</div> -->
 		<main class="terminal-page">
 			<section class="terminal-page__block-1 terminal-page-block-1">
 				<div class="terminal-page-block-1__bg-overlay"></div>
@@ -285,9 +292,9 @@
 					<div class="terminal-page-block-5__form-request-container">
 						<div class="request__body undefined">
 							<h2 class="request__title">Ваши предложения и пожелания</h2>
-							<form data-popup-message="#request-popup" data-dev action="#" class="request__form">
-								<input data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Имя" class="request__input undefined">
-								<input data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Телефон" class="request__input undefined">
+							<form id="form" data-popup-message="#request-popup" action="#" class="request__form">
+								<input id="form-name" data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Имя" class="request__input undefined">
+								<input id="form-phone" data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Телефон" class="request__input undefined">
 								<button type="submit" class="request__button">Отправить</button>
 							</form>
 							<div class="request__privacy undefined">
@@ -431,7 +438,9 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20221025181327"></script>
+
+
+	<script src="js/app.min.js?_v=20230121161338"></script>
 </body>
 
 </html>
