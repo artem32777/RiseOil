@@ -4601,10 +4601,11 @@
             spaceBetween: 20,
             speed: 3e3,
             grabCursor: true,
+            loop: true,
             preloadImages: false,
             watchSlidesProgress: true,
             lazy: {
-                loadPrevNext: false,
+                loadPrevNext: true,
                 loadOnTransitionStart: true
             },
             autoplay: {
@@ -4618,7 +4619,7 @@
             on: {}
         });
         if (document.querySelector(".block-4-tabs__slider")) new core(".block-4-tabs__slider", {
-            modules: [ Autoplay ],
+            modules: [ Autoplay, Lazy ],
             observer: true,
             observeParents: true,
             slidesPerView: 3,
@@ -4628,10 +4629,9 @@
             loop: false,
             watchOverflow: true,
             preloadImages: false,
+            watchSlidesProgress: true,
             lazy: {
-                watchSlidesProgress: true,
                 loadPrevNext: true,
-                loadPrevNextAmount: 1,
                 loadOnTransitionStart: true
             },
             autoplay: {
@@ -4667,7 +4667,7 @@
             on: {}
         });
         if (document.querySelector(".block-8__slider")) new core(".block-8__slider", {
-            modules: [ Autoplay ],
+            modules: [ Autoplay, Lazy ],
             observer: true,
             observeParents: true,
             slidesPerView: 7,
@@ -4677,11 +4677,11 @@
             loop: true,
             watchOverflow: true,
             freeMode: true,
+            watchOverflow: true,
             preloadImages: false,
+            watchSlidesProgress: true,
             lazy: {
-                watchSlidesProgress: true,
                 loadPrevNext: true,
-                loadPrevNextAmount: 1,
                 loadOnTransitionStart: true
             },
             autoplay: {
@@ -4716,12 +4716,10 @@
             grabCursor: true,
             loop: true,
             watchOverflow: true,
-            watchSlidesProgress: true,
             preloadImages: false,
+            watchSlidesProgress: true,
             lazy: {
-                watchSlidesProgress: true,
                 loadPrevNext: true,
-                loadPrevNextAmount: 1,
                 loadOnTransitionStart: true
             },
             autoplay: {
@@ -4763,13 +4761,13 @@
             speed: 3e3,
             grabCursor: true,
             freeMode: false,
-            watchSlidesProgress: true,
+            loop: true,
+            loopAdditionalSlides: 50,
             watchOverflow: true,
             preloadImages: false,
+            watchSlidesProgress: true,
             lazy: {
-                watchSlidesProgress: true,
                 loadPrevNext: true,
-                loadPrevNextAmount: 1,
                 loadOnTransitionStart: true
             },
             autoplay: {
@@ -4803,13 +4801,11 @@
             loopAdditionalSlides: 50,
             initialSlide: 10,
             autoHeight: true,
-            loadPrevNext: true,
             watchOverflow: true,
             preloadImages: false,
+            watchSlidesProgress: true,
             lazy: {
-                watchSlidesProgress: true,
                 loadPrevNext: true,
-                loadPrevNextAmount: 1,
                 loadOnTransitionStart: true
             },
             autoplay: {
