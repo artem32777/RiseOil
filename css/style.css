@@ -995,17 +995,12 @@ body::after {
 }
 
 .header-main-block__logo {
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
   z-index: 21;
-  max-width: 8.5rem;
-  max-height: 2.75rem;
-}
-
-.header-main-block__logo img {
-  width: 100%;
-  height: 100%;
 }
 
 .header-main-block__menu {
@@ -1108,6 +1103,7 @@ body::after {
   color: #fff;
   font-size: 1.25rem;
   font-weight: 200;
+  cursor: pointer;
   font-family: "Inter";
 }
 
@@ -1881,159 +1877,6 @@ body::after {
   color: red;
 }
 
-.preloader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  /* фоновый цвет */
-  background: #1D1D1D;
-  z-index: 1001;
-}
-
-.preloader__image {
-  position: relative;
-  width: 186.61px;
-  height: 180.08px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  text-align: center;
-  -webkit-animation: preloader-rotate 2s infinite linear;
-          animation: preloader-rotate 2s infinite linear;
-}
-
-.preloader__image-white {
-  position: absolute;
-  width: 186.61px;
-  top: 0;
-  left: 0;
-  -webkit-animation-name: rotation;
-          animation-name: rotation;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-}
-
-.preloader__image-yellow {
-  position: absolute;
-  top: 11%;
-  left: 11%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  width: 141.53px;
-  z-index: 5;
-  -webkit-animation-name: rotated;
-          animation-name: rotated;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-}
-
-.preloader__image-letter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  z-index: 10;
-  font-family: "Roboto";
-}
-
-.preloader__image-letter p {
-  font-family: "Roboto";
-  font-weight: 900;
-  font-size: 88px;
-  line-height: 103px;
-  color: #000000;
-  opacity: 1;
-  -webkit-animation: blinker 2s linear infinite;
-          animation: blinker 2s linear infinite;
-}
-
-@-webkit-keyframes rotation {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes rotation {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes rotated {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-  }
-}
-
-@keyframes rotated {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-  }
-}
-
-@-webkit-keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-
-.loaded_hiding .preloader {
-  -webkit-transition: 0.3s opacity;
-  -o-transition: 0.3s opacity;
-  transition: 0.3s opacity;
-  opacity: 0;
-}
-
-.loaded .preloader {
-  display: none;
-}
-
 @supports (padding-top: clamp( 0.0000000625rem , -1.9390242912rem  +  6.4634145122vw , 3.3125rem )) {
   .main-page__block-2 {
     padding-top: clamp( 0.0000000625rem , -1.9390242912rem  +  6.4634145122vw , 3.3125rem );
@@ -2221,6 +2064,21 @@ body::after {
 
 .block-1__slider {
   position: relative;
+}
+
+.block-1__slider::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fbfbfb;
+  z-index: 25;
+}
+
+.block-1__slider.swiper-initialized::before {
+  display: none;
 }
 
 .block-1__wrapper {
@@ -13546,7 +13404,6 @@ body::after {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    height: 1.5rem;
     line-height: 1.2;
     color: #1D1D1D;
     font-size: 0.625rem;
@@ -14239,9 +14096,9 @@ body::after {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    -webkit-box-flex: 11;
-        -ms-flex: 11 auto;
-            flex: 11 auto;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
   }
 
   .header-submenu__items {
@@ -15424,45 +15281,57 @@ body::after {
 }
 
 @media (any-hover: hover) {
-  .hhv,
-  .kerosin-page-block-2__text a,
-  .block-7__title,
-  .block-5__subtitle,
-  .block-4-tabs__title,
-  [class~=request__privacy_white] a,
-  [class~=request__requests_white] *,
-  [class~=request__requests] *,
-  [class~=request__privacy] a,
-  .footer-bottom-block__privacy-link,
-  .footer-bottom-block__link,
-  .footer-main-block__link,
-  .header-submenu__item,
-  .header-main-block__actions > a,
-  .header-main-block__actions button,
-  .header-main-block__link,
-  .header-top-block__container > * {
+  .loaded .hhv,
+  .loaded .kerosin-page-block-2__text a,
+  .kerosin-page-block-2__text .loaded a,
+  .loaded .block-7__title,
+  .loaded .block-5__subtitle,
+  .loaded .block-4-tabs__title,
+  .loaded [class~=request__privacy_white] a,
+  [class~=request__privacy_white] .loaded a,
+  .loaded [class~=request__requests_white] *,
+  [class~=request__requests_white] .loaded *,
+  .loaded [class~=request__requests] *,
+  [class~=request__requests] .loaded *,
+  .loaded [class~=request__privacy] a,
+  [class~=request__privacy] .loaded a,
+  .loaded .footer-bottom-block__privacy-link,
+  .loaded .footer-bottom-block__link,
+  .loaded .footer-main-block__link,
+  .loaded .header-submenu__item,
+  .loaded .header-main-block__actions > a,
+  .loaded .header-main-block__actions button,
+  .header-main-block__actions .loaded button,
+  .loaded .header-main-block__link,
+  .loaded .header-top-block__container > * {
     -webkit-transition: color 0.3s ease 0s;
     -o-transition: color 0.3s ease 0s;
     transition: color 0.3s ease 0s;
   }
 
-  .hhv:hover,
-  .kerosin-page-block-2__text a:hover,
-  .block-7__title:hover,
-  .block-5__subtitle:hover,
-  .block-4-tabs__title:hover,
-  [class~=request__privacy_white] a:hover,
-  [class~=request__requests_white] :hover,
-  [class~=request__requests] :hover,
-  [class~=request__privacy] a:hover,
-  .footer-bottom-block__privacy-link:hover,
-  .footer-bottom-block__link:hover,
-  .footer-main-block__link:hover,
-  .header-submenu__item:hover,
-  .header-main-block__actions > a:hover,
-  .header-main-block__actions button:hover,
-  .header-main-block__link:hover,
-  .header-top-block__container > :hover {
+  .loaded .hhv:hover,
+  .loaded .kerosin-page-block-2__text a:hover,
+  .kerosin-page-block-2__text .loaded a:hover,
+  .loaded .block-7__title:hover,
+  .loaded .block-5__subtitle:hover,
+  .loaded .block-4-tabs__title:hover,
+  .loaded [class~=request__privacy_white] a:hover,
+  [class~=request__privacy_white] .loaded a:hover,
+  .loaded [class~=request__requests_white] :hover,
+  [class~=request__requests_white] .loaded :hover,
+  .loaded [class~=request__requests] :hover,
+  [class~=request__requests] .loaded :hover,
+  .loaded [class~=request__privacy] a:hover,
+  [class~=request__privacy] .loaded a:hover,
+  .loaded .footer-bottom-block__privacy-link:hover,
+  .loaded .footer-bottom-block__link:hover,
+  .loaded .footer-main-block__link:hover,
+  .loaded .header-submenu__item:hover,
+  .loaded .header-main-block__actions > a:hover,
+  .loaded .header-main-block__actions button:hover,
+  .header-main-block__actions .loaded button:hover,
+  .loaded .header-main-block__link:hover,
+  .loaded .header-top-block__container > :hover {
     color: #f9ae19;
   }
 
@@ -15536,9 +15405,11 @@ body::after {
   }
 
   .block-1-slide__button {
-    -webkit-transition: all 0.35s ease 0s;
-    -o-transition: all 0.35s ease 0s;
-    transition: all 0.35s ease 0s;
+    -webkit-transition: -webkit-transform 0.35s ease 0s, -webkit-filter 0.35s ease 0s;
+    transition: -webkit-transform 0.35s ease 0s, -webkit-filter 0.35s ease 0s;
+    -o-transition: transform 0.35s ease 0s, filter 0.35s ease 0s;
+    transition: transform 0.35s ease 0s, filter 0.35s ease 0s;
+    transition: transform 0.35s ease 0s, filter 0.35s ease 0s, -webkit-transform 0.35s ease 0s, -webkit-filter 0.35s ease 0s;
   }
 
   .block-1-slide__button:hover {
