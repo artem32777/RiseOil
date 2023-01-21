@@ -5009,11 +5009,13 @@
                 grabCursor: true,
                 loop: false,
                 watchOverflow: true,
-                loadPrevNext: true,
-                watchSlidesProgress: true,
-                watchOverflow: true,
                 preloadImages: false,
-                lazy: true,
+                lazy: {
+                    watchSlidesProgress: true,
+                    loadPrevNext: true,
+                    loadPrevNextAmount: 1,
+                    loadOnTransitionStart: true
+                },
                 autoplay: {
                     delay: 5e3,
                     disableOnInteraction: false
@@ -5057,11 +5059,13 @@
                 loop: true,
                 watchOverflow: true,
                 freeMode: true,
-                loadPrevNext: true,
-                watchSlidesProgress: true,
-                watchOverflow: true,
                 preloadImages: false,
-                lazy: true,
+                lazy: {
+                    watchSlidesProgress: true,
+                    loadPrevNext: true,
+                    loadPrevNextAmount: 1,
+                    loadOnTransitionStart: true
+                },
                 autoplay: {
                     delay: 0,
                     disableOnInteraction: false,
@@ -5094,11 +5098,14 @@
                 grabCursor: true,
                 loop: true,
                 watchOverflow: true,
-                loadPrevNext: true,
                 watchSlidesProgress: true,
-                watchOverflow: true,
                 preloadImages: false,
-                lazy: true,
+                lazy: {
+                    watchSlidesProgress: true,
+                    loadPrevNext: true,
+                    loadPrevNextAmount: 1,
+                    loadOnTransitionStart: true
+                },
                 autoplay: {
                     reverseDirection: true,
                     delay: 4e3,
@@ -5130,22 +5137,23 @@
                 on: {}
             });
             if (document.querySelector(".block-10__slider-top")) new core(".block-10__slider-top", {
-                modules: [ Autoplay, Lazy ],
+                modules: [ Lazy, Autoplay ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 3,
                 spaceBetween: 0,
                 speed: 3e3,
                 grabCursor: true,
-                watchOverflow: true,
                 freeMode: false,
-                loop: true,
-                loopAdditionalSlides: 50,
-                loadPrevNext: true,
                 watchSlidesProgress: true,
                 watchOverflow: true,
                 preloadImages: false,
-                lazy: true,
+                lazy: {
+                    watchSlidesProgress: true,
+                    loadPrevNext: true,
+                    loadPrevNextAmount: 1,
+                    loadOnTransitionStart: true
+                },
                 autoplay: {
                     delay: 800,
                     disableOnInteraction: false,
@@ -5173,16 +5181,19 @@
                 speed: 3e3,
                 grabCursor: true,
                 loop: true,
-                watchOverflow: true,
                 freeMode: false,
                 loopAdditionalSlides: 50,
                 initialSlide: 10,
                 autoHeight: true,
                 loadPrevNext: true,
-                watchSlidesProgress: true,
                 watchOverflow: true,
                 preloadImages: false,
-                lazy: true,
+                lazy: {
+                    watchSlidesProgress: true,
+                    loadPrevNext: true,
+                    loadPrevNextAmount: 1,
+                    loadOnTransitionStart: true
+                },
                 autoplay: {
                     reverseDirection: true,
                     delay: 800,
@@ -5382,11 +5393,12 @@
             initSliders();
         }));
         var lazyload_min = __webpack_require__(732);
-        new lazyload_min({
+        const lazyMedia = new lazyload_min({
             elements_selector: "[data-src],[data-srcset]",
             class_loaded: "_lazy-loaded",
             use_native: true
         });
+        lazyMedia.update();
         class ScrollWatcher {
             constructor(props) {
                 let defaultConfig = {
