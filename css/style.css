@@ -2076,6 +2076,9 @@ body::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 0.9375rem;
   width: 100%;
   margin-top: -2.5625rem;
